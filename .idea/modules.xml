@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/heima-leadnews-test/AipContentCensor/AipContentCensor.iml" filepath="$PROJECT_DIR$/heima-leadnews-test/AipContentCensor/AipContentCensor.iml" />
       <module fileurl="file://$PROJECT_DIR$/heima-leadnews-test/freemarker-demo/freemarker-demo.iml" filepath="$PROJECT_DIR$/heima-leadnews-test/freemarker-demo/freemarker-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/heima-leadnews-basic/heima-file-starter/heima-file-starter.iml" filepath="$PROJECT_DIR$/heima-leadnews-basic/heima-file-starter/heima-file-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/heima-leadnews.iml" filepath="$PROJECT_DIR$/heima-leadnews.iml" />
