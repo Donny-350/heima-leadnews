@@ -20,19 +20,33 @@ public class TaskServiceImplTest {
 
     @Test
     public void addTask() {
-        Task task = new Task();
-        task.setTaskType(100);
-        task.setPriority(50);
-        task.setParameters("task test".getBytes());
-        task.setExecuteTime(new Date().getTime() + 1000);
 
-        long taskId = taskService.addTask(task);
-        System.out.println(taskId);
+        for (int i = 0; i < 5; i++) {
+            Task task = new Task();
+            task.setTaskType(100+i);
+            task.setPriority(50);
+            task.setParameters("task test".getBytes());
+            task.setExecuteTime(new Date().getTime() + 500*i);
+
+            long taskId = taskService.addTask(task);
+        }
+
     }
 
     @Test
     public void test1() {
         Date date = new Date();
         System.out.println(date);
+    }
+
+    @Test
+    public void cancelTask() {
+        taskService.cancelTask(1679505903225438210L);
+    }
+
+    @Test
+    public void testPoll(){
+        Task task = taskService.poll(100, 50);
+        System.out.println(task);
     }
 }

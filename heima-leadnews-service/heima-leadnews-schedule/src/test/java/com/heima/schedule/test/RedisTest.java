@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Set;
+
 @SpringBootTest(classes = ScheduleApplication.class)
 @RunWith(SpringRunner.class)
 public class RedisTest {
@@ -30,5 +32,14 @@ public class RedisTest {
         cacheService.zAdd("zset_key_001", "hello zset 001", 1000);
         cacheService.zAdd("zset_key_001", "hello zset 002", 2000);
         cacheService.zAdd("zset_key_001", "hello zset 003", 3000);
+    }
+
+    @Test
+    public void testKeys() {
+        Set<String> keys = cacheService.keys("future_*");
+        System.out.println(keys);
+
+        Set<String> scan = cacheService.scan("future_*");
+        System.out.println(scan);
     }
 }
