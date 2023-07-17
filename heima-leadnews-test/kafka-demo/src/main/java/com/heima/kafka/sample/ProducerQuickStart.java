@@ -18,11 +18,20 @@ public class ProducerQuickStart {
         prop.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
         prop.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
 
+        //ack配置 消息确认机制
+        prop.put(ProducerConfig.ACKS_CONFIG, "all");
+
+        //重试次数
+        prop.put(ProducerConfig.RETRIES_CONFIG, 10);
+
+        //数据压缩
+        prop.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, "lz4");
+
         //2. 创建kafka生产者对象
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(prop);
 
         //3. 发送消息
-        ProducerRecord<String, String> kvProducerRecord = new ProducerRecord<String, String>("topic-first", "key-001", "hello kafka");
+        ProducerRecord<String, String> kvProducerRecord = new ProducerRecord<String, String>("topic-first", "hello kafka");
         producer.send(kvProducerRecord);
 
         //4. 关闭消息通道
